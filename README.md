@@ -29,4 +29,4 @@ Restrictions:
     
       for MIX >= 10
     
-Example: <code>java -jar target/ammo-generator-1.0-jar-with-dependencies.jar join /home/user GET /v0/entity 1000 get-ammo replicas=2/3 replicas=3/3 PUT /v0/entity 100 put-ammo replicas=2/3 MIX /v0/entity 1000 mix-ammo replicas=2/3 replicas=3/3</code>
+Example: <code>java -jar target/ammo-generator-1.0-jar-with-dependencies.jar combine /home/user GET /v0/entity 1000 get-ammo replicas=2/3 replicas=3/3 PUT /v0/entity 100 put-ammo replicas=2/3 MIX /v0/entity 1000 mix-ammo replicas=2/3 replicas=3/3</code>
