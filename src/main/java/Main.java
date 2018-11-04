@@ -7,7 +7,7 @@ public class Main {
 
     // Requests amount
     private final static String SPLITTED_MODE = "split";
-    private final static String JOINED_MODE = "join";
+    private final static String COMBINED_MODE = "combine";
     private final static int MIN_ARGS_LENGTH = 7;
 
     private static class ReqConfig {
@@ -85,7 +85,7 @@ public class Main {
                     }
                     break;
                 }
-                case JOINED_MODE: {
+                case COMBINED_MODE: {
                     File dist = createFile(dir, this.file);
                     if (method.equals(AmmoFactory.GET)) AmmoFactory.generateGetAmmo(dist, uri, amount, factors);
                     if (method.equals(AmmoFactory.PUT)) AmmoFactory.generatePutAmmo(dist, uri, amount, factors);
