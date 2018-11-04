@@ -75,7 +75,6 @@ public class Main {
         }
 
         public void build(File dir, String mode) throws IOException{
-            System.out.println(mode + " : " + this.toString());
             switch (mode) {
                 case SPLITTED_MODE: {
                     for (String factor : this.factors) {
@@ -88,7 +87,6 @@ public class Main {
                 }
                 case JOINED_MODE: {
                     File dist = createFile(dir, this.file);
-                    System.out.println(dist.getAbsolutePath());
                     if (method.equals(AmmoFactory.GET)) AmmoFactory.generateGetAmmo(dist, uri, amount, factors);
                     if (method.equals(AmmoFactory.PUT)) AmmoFactory.generatePutAmmo(dist, uri, amount, factors);
                     if (method.equals(AmmoFactory.MIX)) AmmoFactory.generateMixedAmmo(dist, uri, amount, factors);
@@ -112,15 +110,6 @@ public class Main {
         public int getOffset() {
             return offset;
         }
-
-        @Override
-        public String toString() {
-            String result = method + " " + uri + " " + amount + " " + file;
-            for (String str : factors) {
-                result += " " + str;
-            }
-            return result;
-        }
     }
 
     public static void main(String[] args) throws IOException{
@@ -131,12 +120,13 @@ public class Main {
         File dir = new File(args[position++]);
         if (!dir.isDirectory()) throw new IllegalArgumentException(dir.toString() + " IS NOT DIRECTORY");
         if (!dir.exists()) throw new IllegalArgumentException(dir.toString() + " IS NOT FOUND");
-        System.out.println("Dist: " + dir.getAbsolutePath());
+        System.out.println("Mode: " + mode);
+        System.out.println("Folder: " + dir.getAbsolutePath());
         while(position < args.length) {
             ReqConfig reqConfig = ReqConfig.generate(args, position);
             position = reqConfig.getOffset();
             reqConfig.build(dir, mode);
         }
-        System.out.println("TOTAL: " + AmmoFactory.getRequestsAmount());
+        System.out.println("Total: " + AmmoFactory.getRequestsAmount());
     }
 }
