@@ -1,5 +1,3 @@
-import com.sun.istack.internal.NotNull;
-
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -30,21 +28,20 @@ public class FactoryBase {
         return data;
     }
 
-    protected static void recursiveDelete(@NotNull final File path) throws IOException {
+    protected static void recursiveDelete(final File path) throws IOException {
         java.nio.file.Files.walkFileTree(
                 path.toPath(),
                 new SimpleFileVisitor<Path>() {
-                    protected void remove(@NotNull final Path file) throws IOException {
+                    protected void remove(final Path file) throws IOException {
                         if (!file.toFile().delete()) {
                             throw new IOException("Can't delete " + file);
                         }
                     }
 
-                    @NotNull
                     @Override
                     public FileVisitResult visitFile(
-                            @NotNull final Path file,
-                            @NotNull final BasicFileAttributes attrs) throws IOException {
+                            final Path file,
+                            final BasicFileAttributes attrs) throws IOException {
                         remove(file);
                         return FileVisitResult.CONTINUE;
                     }
