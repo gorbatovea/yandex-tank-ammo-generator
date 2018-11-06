@@ -108,7 +108,7 @@ public class AmmoFactory extends FactoryBase{
             }
 
             fOS.close();
-            System.out.println("Created GET ammo at " + dist.getAbsolutePath());
+            System.out.println("Created MIX ammo at " + dist.getAbsolutePath());
         } catch (IOException iOE) {
             iOE.printStackTrace();
         }
@@ -137,7 +137,7 @@ public class AmmoFactory extends FactoryBase{
             getRequests(uri, amount / 4, factor, fOS, value, random);
 
             fOS.close();
-            System.out.println("Created GET ammo at " + dist.getAbsolutePath());
+            System.out.println("Created MIX ammo at " + dist.getAbsolutePath());
         } catch (IOException iOE) {
             iOE.printStackTrace();
         }
